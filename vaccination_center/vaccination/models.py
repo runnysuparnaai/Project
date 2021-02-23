@@ -1,0 +1,66 @@
+from django.db import models
+from django.utils import timezone
+
+class m_vaccination_center(models.Model):
+    class Meta:
+        db_table="m_vaccination_center"
+    record_key=models.CharField(primary_key=True,max_length=100)
+    code = models.CharField(max_length=100)
+    type_code=models.CharField(max_length=100)
+    type_name=models.CharField(max_length=100)
+    name=models.CharField(max_length=100)
+    description=models.CharField(max_length=100)
+    ou_level_code=models.CharField(max_length=100)
+    ou_level_name=models.CharField(max_length=100)
+    ou_code=models.CharField(max_length=100)
+    ou_name=models.CharField(max_length=100)
+    street_address=models.CharField(max_length=100)
+    apt_suites_others=models.CharField(max_length=100)
+    city=models.CharField(max_length=100)
+    state=models.CharField(max_length=100)
+    zip_code=models.CharField(max_length=10)
+    status=models.CharField(max_length=100)
+    active_from = models.DateTimeField(default=timezone.now)
+    active_to =models.DateTimeField(default=timezone.now) 
+    key_level1_jurisdiction_code=models.CharField(max_length=100)
+    key_level1_jurisdiction_name=models.CharField(max_length=100)
+    key_level2_jurisdiction_code=models.CharField(max_length=100)
+    key_level2_jurisdiction_name=models.CharField(max_length=100)
+    admin_code=models.CharField(max_length=100)
+    admin_name=models.CharField(max_length=100)
+    serving_area_code=models.CharField(max_length=100)
+    serving_area_names=models.CharField(max_length=100)
+    serving_area_zips=models.CharField(max_length=500)
+    geo_lat=models.FloatField()
+    geo_long=models.FloatField()
+    no_vaccination_stations=models.IntegerField()
+    vaccination_capacity=models.IntegerField()
+    workflow_id=models.CharField(max_length=100)
+    workflow_seq_no=models.IntegerField()
+    user_id=models.CharField(max_length=100)
+    user_name=models.CharField(max_length=100)
+    role_code=models.CharField(max_length=100)
+    role_name=models.CharField(max_length=100)
+    doc_nos=models.CharField(max_length=250)
+    n1=models.IntegerField()
+    n2=models.IntegerField()
+    d1=models.FloatField()
+    d2=models.FloatField()
+    s1=models.CharField(max_length=100)
+    s2=models.CharField(max_length=100)
+    createdBy=models.CharField(max_length=100)
+    createdOn=models.CharField(max_length=100)
+
+class m_vaccination_center_history(models.Model):
+    record_key=models.CharField(primary_key=True,max_length=100)
+    code = models.CharField(max_length=100)
+    update_datetime=models.DateTimeField(default=timezone.now)
+    notes=models.TextField()
+    user_id=models.CharField(max_length=100)
+    user_name=models.CharField(max_length=100)
+    ou_code=models.CharField(max_length=100)
+    ou_name=models.CharField(max_length=100)
+
+    class Meta:
+        db_table="m_vaccination_center_history"
+
